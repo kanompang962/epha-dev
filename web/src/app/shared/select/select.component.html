@@ -1,0 +1,12 @@
+
+<div class="w-full">
+  <label class="block mb-2 text-sm text-gray-600" *ngIf="label" for="{{ name }}">{{ label.toLocaleUpperCase() }}</label>
+  <select class="bg-white border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        id="countries"
+        [ngClass]="{'border-red-500':formControl.invalid && (formControl.touched || error)}"
+        [formControl]="formControl">
+    <option [value]="null" disabled selected>Selected</option>
+    <option [value]="item.value" *ngFor="let item of options">{{item.label}}</option>
+  </select> 
+  <small class="error-message text-red-500" *ngIf="formControl.invalid && (formControl.touched || error)">This field is required</small>
+</div>
